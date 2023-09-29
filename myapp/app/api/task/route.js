@@ -11,3 +11,17 @@ export async function GET(req) {
         return new Response(JSON.stringify(null), { status: 500 })
     }
 }
+
+
+export async function POST(req) {
+    await db.connect()
+
+    try {
+        const body = await req.json()
+        const newContact = await Contact.create(body)
+
+        return new Response(JSON.stringify(newContact), { status: 201 })
+    } catch (error) {
+        return new Response(JSON.stringify(null), { status: 500 })
+    }
+}
