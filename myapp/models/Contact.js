@@ -5,7 +5,16 @@ const ContactSchema = new mongoose.Schema({
     name: String,
     email: String,
     phone: String,
-    category: String,
+    category: {
+        type: String,
+        enum: [
+            'Friends',
+            'Family',
+            'Professional',
+            'Business',
+            'Secret',
+        ]
+    },
 })
 
 
