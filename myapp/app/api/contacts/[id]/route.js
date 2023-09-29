@@ -1,5 +1,6 @@
-import db from "@/lib/db";
+import db from "@/libs/db";
 import Contact from "@/models/Contact";
+
 
 export async function GET(req, ctx) {
     await db.connect()
